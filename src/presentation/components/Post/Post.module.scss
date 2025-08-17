@@ -1,0 +1,39 @@
+.post {
+
+  width: 100%;
+  max-width: calc(100% - 2rem);
+  margin: 0 auto;
+
+  .postHeader {
+    background: #7695EC;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+
+  .postBody {
+    padding: 1rem;
+    border: 1px solid gray;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    color: black;
+  }
+
+  .infoLine {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .postButton {
+    padding: 0.5rem;
+  }
+
+  .buttonIcon {
+    font-size: 1.5rem;
+  }
+}

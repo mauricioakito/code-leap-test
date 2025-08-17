@@ -1,0 +1,17 @@
+.loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+
+    .loaderMessage {
+      color: black;
+      text-align: center;
+    }
+    
+    .loaderGif {
+      align-self: center;
+      max-width: 4rem;
+    }
+}
+

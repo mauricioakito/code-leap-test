@@ -1,0 +1,11 @@
+.modalEdit {
+  width: 90%;
+  background: white;
+  border-radius: 1rem;
+  margin: 0 1rem;
+
+  @media screen and (min-width: 700px) {
+    width: 660px;
+  }
+
+}

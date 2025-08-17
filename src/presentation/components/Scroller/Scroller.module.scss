@@ -1,0 +1,30 @@
+@use '../../styles/Form.module.scss';
+
+.scroller {
+  background: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  .header {
+    padding: 1.5rem;
+    background: #7695EC;
+  }
+
+  .headerTitle {
+    font-size: 1.5rem;
+  }
+  .postContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .scroller {
+    max-width: 800px;
+    min-width: 800px;
+  }
+}
