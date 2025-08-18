@@ -1,6 +1,7 @@
 import styles from './Delete.module.scss'
 import { useStore } from '@/store/useStore'
 import { deleteRequest } from './DeleteRequest'
+import { Button } from '../../Button'
 
 export const Delete = () => {
 
@@ -15,8 +16,8 @@ export const Delete = () => {
       <div className={styles.innerModalContainer}>
         <h1 className={styles.deleteModalTitle}>Are you sure you want to delete this item?</h1>
         <div className={styles.buttonContainer}>
-          <button className={styles.modalButtonCancel} onClick={() => setModalShow({delete: !modalShow.delete})}>Cancel</button>
-          <button className={styles.modalButtonDelete} onClick={() => handleDeletePost()}>Delete</button>
+          <Button.CTA tagName="button" text="Cancel" onClick={() => setModalShow({delete: !modalShow.delete})} variation="back"/>
+          <Button.CTA tagName="button" text="Delete" onClick={() => handleDeletePost()} variation="cancel"/>
         </div>
       </div>
     </div>
