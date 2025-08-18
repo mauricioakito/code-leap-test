@@ -1,69 +1,58 @@
-# React + TypeScript + Vite
+# Project Title
+CodeLeap Network Test
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This section should contain a brief and engaging title for your project.
 
-Currently, two official plugins are available:
+## Description
+This project was developed as a code test for the company CodeLeap. The goal was to create a full-stack application, likely a social media-style app, featuring core functionalities such as simple authentication and post management. The application may be built to replicate a design provided in Figma.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+User Authentication: Implement a simple user login system.
 
-## Expanding the ESLint configuration
+Post Management: Enable users to create, edit, and delete posts.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Post Listing: Display a list of posts, potentially with an infinite scroll feature.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Data Persistence: Store user and post data, possibly using a backend API.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Technologies
+The following tools and frameworks were likely used to build this project:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Frontend: React, Vite, TypeScript
+
+Styling: SCSS
+
+State Management: Zustand
+
+API Interaction: Custom Fetch Hook
+
+Form Handling: React Hook Form
+
+Other: Zod for schema validation
+
+## Getting Started
+To get a local copy up and running, follow these simple steps.
+
+## Prerequisites
+Node.js and npm (or yarn) installed on your machine.
+
+Git
+
+## Installation
+Clone the repository:
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+git clone https://github.com/mauricioakito/code-leap-test.git
 ```
+Navigate into the project directory:
+```
+cd code-leap-test
+```
+Install the dependencies:
+```
+npm install or yarn
+```
+Run the development server:
+```
+npm run dev or yarn dev
+```
+The application should now be running on  http://localhost:5173/code-leap-test/
