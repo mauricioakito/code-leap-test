@@ -3,7 +3,7 @@ import { useStore } from "@/store/useStore";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import classNames from "classnames";
+import { Button } from "../../Button";
 
 const schema = z.object({
   username: z.string().min(3, "Name must have at least 3 characters"),
@@ -47,15 +47,7 @@ export const Welcome = () => {
             <p className={styles.errorMessage}>{errors.username.message}</p>
           )}
         </div>
-        <button
-          type="submit"
-          disabled={!isValid}
-          className={classNames(styles.buttonSubmit, {
-            [styles.disabledButton]: !isValid,
-          })}
-        >
-          Enter
-        </button>
+        <Button.CTA tagName="button" text="Enter" type="submit" disabled={!isValid} variation="primary"/>
       </form>
     </div>
   );
