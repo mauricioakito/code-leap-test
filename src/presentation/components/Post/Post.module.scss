@@ -31,6 +31,17 @@
 
   .postButton {
     padding: 0.5rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 0 0.125rem;
+
+    &:hover {
+      background-color: #5371c4;
+      transition: 0.3s;
+    }
+
   }
 
   .buttonIcon {
