@@ -2,10 +2,10 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import styles from "./Create.module.scss";
-import classNames from "classnames";
 import { useStore } from "@/store/useStore";
 import { createRequest } from "./CreateRequest";
 import { editRequest } from "./EditRequest";
+import { Button } from "../../Button";
 
 const schema = z.object({
   title: z.string().min(1, "Name must have at least 1 character"),
@@ -21,11 +21,11 @@ export const CreateOrEdit = ({
 }: {
   requestType: IRequestType;
 }) => {
+  const isCreateType = requestType === "create";
+  const isEditType = requestType === "edit";
 
-  const isCreateType = requestType === 'create'
-  const isEditType = requestType === 'edit'
-
-  const { username, setPosts, setModalShow, selectedPostID, selectedPostData } = useStore();
+  const { username, setPosts, setModalShow, selectedPostID, selectedPostData } =
+    useStore();
 
   const {
     register,
@@ -45,13 +45,20 @@ export const CreateOrEdit = ({
       await createRequest({ username, data, setPosts, reset });
     }
     if (isEditType) {
-      await editRequest({ postID: selectedPostID, data, setPosts, setModalShow })
+      await editRequest({
+        postID: selectedPostID,
+        data,
+        setPosts,
+        setModalShow,
+      });
     }
   };
 
   return (
     <div className={styles.createForm}>
-      <h1 className={styles.formTitle}>{isCreateType ? "What's on your mind?" : "Edit Item"}</h1>
+      <h1 className={styles.formTitle}>
+        {isCreateType ? "What's on your mind?" : "Edit Item"}
+      </h1>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.inputContainer}>
           <label className={styles.label} htmlFor="title">
@@ -61,7 +68,7 @@ export const CreateOrEdit = ({
             className={styles.inputfield}
             {...register("title")}
             placeholder="John doe"
-            defaultValue={isEditType ? selectedPostData.title : ''}
+            defaultValue={isEditType ? selectedPostData.title : ""}
           />
           {errors.title && (
             <p className={styles.errorMessage}>{errors.title.message}</p>
@@ -73,7 +80,7 @@ export const CreateOrEdit = ({
           </label>
           <textarea
             rows={5}
-            defaultValue={isEditType ? selectedPostData.content : ''}
+            defaultValue={isEditType ? selectedPostData.content : ""}
             className={styles.inputfield}
             {...register("content")}
             placeholder="Content"
@@ -83,34 +90,29 @@ export const CreateOrEdit = ({
           )}
         </div>
         {isCreateType && (
-          <button
+          <Button.CTA
+            tagName="button"
+            text="Create"
             type="submit"
             disabled={!isValid}
-            className={classNames(styles.buttonSubmit, {
-              [styles.disabledButton]: !isValid,
-            })}
-          >
-            Create
-          </button>
+            variation="primary"
+          />
         )}
         {isEditType && (
           <div className={styles.buttonEditContainer}>
-            <button
-              type="submit"
-              onClick={() => setModalShow({edit: false})}
-              className={styles.buttonCancelSubmit}
-            >
-              Cancel
-            </button>
-            <button
+            <Button.CTA
+              tagName="button"
+              text="Cancel"
+              onClick={() => setModalShow({ edit: false })}
+              variation="back"
+            />
+            <Button.CTA
+              tagName="button"
+              text="Save"
               type="submit"
               disabled={!isValid}
-              className={classNames(styles.buttonSubmit, styles.buttonSaveSubmit, {
-                [styles.disabledButton]: !isValid,
-              })}
-            >
-              Save
-            </button>
+              variation="save"
+            />
           </div>
         )}
       </form>
