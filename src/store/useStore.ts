@@ -2,6 +2,10 @@ import type { IPostState } from "@/types/app";
 import { create } from "zustand";
 
 interface Store {
+
+  hasRequestedPosts: boolean;
+  setHasRequestedPosts: (status: boolean) => void;
+
   username: string;
   setUsername: (name: string) => void;
 
@@ -25,6 +29,10 @@ interface Store {
 }
 
 export const useStore = create<Store>((set) => ({
+
+  hasRequestedPosts: false,
+  setHasRequestedPosts: (status: boolean) => set({ hasRequestedPosts: status }),
+
   username: "",
   setUsername: (name: string) => set({ username: name }),
 
