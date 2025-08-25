@@ -7,14 +7,15 @@ import { useStore } from "../store/useStore";
 import { Scroller } from "@/presentation/components/Scroller";
 
 function App() {
-  const { username, posts, setPosts } = useStore();
+  const { username, posts, setPosts, setHasRequestedPosts } = useStore();
 
   useEffect(() => {
     username && ReadPosts().then((response) => setPosts(response));
   }, [username, setPosts]);
 
   useEffect(() => {
-    posts.length > 0 && setPosts(posts);
+    setHasRequestedPosts(true)
+    posts.length > 0 && setPosts(posts)
   }, [posts, setPosts]);
 
   return <>{!username ? <Modal.Welcome /> : <Scroller />}</>;
