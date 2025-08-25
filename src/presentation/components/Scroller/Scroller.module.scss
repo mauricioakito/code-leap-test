@@ -3,8 +3,10 @@
 .scroller {
   background: white;
   display: flex;
-  justify-content: center;
+  // justify-content: center;
   flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
 
   .header {
     padding: 1.5rem;
