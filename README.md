@@ -1,8 +1,6 @@
 # Project Title
 CodeLeap Network Test
 
-This section should contain a brief and engaging title for your project.
-
 ## Description
 This project was developed as a code test for the company CodeLeap. The goal was to create a full-stack application, likely a social media-style app, featuring core functionalities such as simple authentication and post management. The application may be built to replicate a design provided in Figma.
 
